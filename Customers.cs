@@ -12,15 +12,15 @@ namespace HappyHomes_App
         private static int nextId = 1;
 
         public int CustomerId { get; set; }
-        public int FullName {  get; set; }
-        public int Email { get; set; }
-        public int Address   { get; set; }    
-        public int PhoneNumber { get; set; }
+        public string FullName {  get; set; }
+        public string Email { get; set; }
+        public string Address   { get; set; }    
+        public string PhoneNumber { get; set; }
         public int MissedViewing { get; set; }
 
 
         //Constructor to create Customer Object
-        public Customers(int fullName, int email, int address, int phoneNumber)
+        public Customers(string fullName, string email, string address, string phoneNumber)
         {
             //Increased customer Id by 1 each time a new customer is added
             CustomerId = nextId;
