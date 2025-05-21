@@ -16,9 +16,9 @@ namespace HappyHomes_App
         public RealEstate()
         {
             Properties = new List<Properties>();
-            CustomersList = new List<Customers >();
-            StaffMembers = new List<Staff >();
-            Viewings = new List<Viewings >();
+            CustomersList = new List<Customers>();
+            StaffMembers = new List<Staff>();
+            Viewings = new List<Viewings>();
         }
         //Method to take in a Staff Object and store in the List StaffMembers
         public void AddStaff(Staff staff)
@@ -43,7 +43,7 @@ namespace HappyHomes_App
             //try to find the customer and the list of customers in realEstate object
             Customers customer = null;
             //loop through customer list
-            foreach(Customers c in CustomersList)
+            foreach (Customers c in CustomersList)
             { //if the email is used when calling the method (BookViewing)
                 if (c.Email == customerEmail)
                 {
@@ -52,7 +52,7 @@ namespace HappyHomes_App
                     break;
                 }
             }
-           Properties properties = null;
+            Properties properties = null;
             //loop through properties list
             foreach (Properties p in Properties)
             { //if the PropertyID is used when calling the method (BookViewing)
@@ -76,8 +76,8 @@ namespace HappyHomes_App
             }
             //we have now checked the staff, property and customer all real
 
-            if (customer== null ||properties==null || staff==null)
-                    {
+            if (customer == null || properties == null || staff == null)
+            {
                 Console.WriteLine("Error, Customer, Property or Staff Member not found in RealEstate system");
                 return null;
             }
@@ -90,18 +90,57 @@ namespace HappyHomes_App
 
             }
             //Check Staff to see if staff are free
-            foreach(Viewings viewing in Viewings)
-            { if (viewing.Staff.Name ==staff.Name && viewing.ViewingTime== viewingTime)
+            foreach (Viewings viewing in Viewings)
+            {
+                if (viewing.Staff.Name == staff.Name && viewing.ViewingTime == viewingTime)
                 {
                     Console.WriteLine("Staff member is already booked for this time");
                     return null;
                 }
-             }
+            }
 
             //if all passess are checked, add new viewing
             Viewings newViewing = new Viewings(customer, properties, staff, viewingTime);
             Viewings.Add(newViewing); //add to viewing list in store object
             return newViewing; // return the successful booking
+        }
+        public void AdjustVievingStatus(int viewingID, string newStatus)
+        {
+            Viewings viewing = null;
+            foreach (var v in Viewings)
+            {
+                if (v.Customers.CustomerId == viewingID)
+                {
+                    viewing = v;
+                    break;
+                }
+            }
+            if (viewing != null)
+            {
+                if (newStatus == "Booked" || newStatus == "Viewing Attended" || newStatus == "Viewing Missed" || newStatus == "Cancelled")
+                {
+                    viewing.Status = newStatus;
+                    //viewing missed add one to customer
+                    if (newStatus == "viewing Missed")
+                    {
+                        viewing.Customers.MissedViewing++;
+                        if (viewing.Customers.MissedViewing <= 3)
+                        {
+                            Console.WriteLine("Customer can no longer make bookings");
+                        }
+                    }
+                    Console.WriteLine("Viewing status updated");
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Status given)");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Viewing not found");
+            }
         }
     }
 }

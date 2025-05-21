@@ -24,5 +24,6 @@ namespace HappyHomes_App
             ViewingTime = viewingTime;
             Status = "Bookings";
         }
+
     }
 }

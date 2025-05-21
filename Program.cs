@@ -36,8 +36,10 @@ namespace HappyHomes_App
 
                 Console.WriteLine("----Viewing Options:");
                 Console.WriteLine("7. Add new booking");
-                Console.WriteLine("8.View all bookings");
-                Console.WriteLine("9.Adjust ");
+                Console.WriteLine("8. View all bookings");
+                Console.WriteLine("9. Adjust booking");
+                Console.WriteLine("10. Find booking");
+                Console.WriteLine("11. Quit");
                 string option = Console.ReadLine();
                 //Allows user to add new customer
                 if (option == "1")
@@ -62,6 +64,14 @@ namespace HappyHomes_App
                     foreach (Customers customer in realEstate1.CustomersList)
                     {
                         Console.WriteLine(customer.GetDetsils());
+                        if (customer.CanBookViewing)
+                        {
+                            Console.WriteLine("Status: Can make Booking");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Status: Blocked from Bookings");
+                        }
                     }
                 }
                 else if (option == "3")
@@ -126,12 +136,85 @@ namespace HappyHomes_App
 
 
                 }
-                else if (option =="8")
+                else if (option == "8")
                 {
-                    foreach(Viewings viewing in realEstate1.Viewings)
+                    foreach (Viewings viewing in realEstate1.Viewings)
                     {
                         Console.WriteLine($"{viewing.Customers.FullName} - {viewing.Properties.Address} - {viewing.Staff.Name} - {viewing.ViewingTime} | {viewing.Status}");
                     }
+                }
+                else if (option == "9")
+                {
+
+                    Console.WriteLine("Enter Customer ID of the viewing to adjust ");
+                    int customerID;
+                    bool parsed = Int32.TryParse(Console.ReadLine(), out customerID);
+                    if (!parsed)
+                    {
+                        Console.WriteLine("Invalid ID");
+                        continue;
+                    }
+                    //Find vieving
+                    Viewings viewing = null;
+                    foreach (var v in realEstate1.Viewings)
+                    {
+                        if (v.Customers.CustomerId == customerID)
+                        {
+                            viewing = v;
+                            break;
+                        }
+                    }
+                    if (viewing!= null)
+                    {
+                        Console.WriteLine("Current Status: " + viewing.Status);
+                        Console.WriteLine("Enter new status (Booked, Viewing Attended, Viewing Missed, Cancelled: ");
+                        string newStatus = Console.ReadLine();
+
+                        realEstate1.AdjustVievingStatus(viewing.Customers.CustomerId, newStatus);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Viewing not found");
+                    }
+
+                }
+                else if (option =="10")
+                {
+                    Console.WriteLine("Enter Customer ID");
+                    int customerID;
+                    bool validID = Int32.TryParse(Console.ReadLine(),out customerID);
+                    if (!validID)
+                    {
+                        Console.WriteLine("Invalid ID");
+                        continue;
+                    }
+                    Viewings  foundviewing = null;
+                    foreach (var v in realEstate1.Viewings)
+                    {
+                        if (v.Customers.CustomerId == customerID)
+                        {
+                            foundviewing = v;
+                            break;
+
+                        }
+                    }
+                    if (foundviewing != null)
+                    {
+                        Console.WriteLine($"Vieving for Custome: {foundviewing.Customers.FullName}");
+                        Console.WriteLine($"Property: {foundviewing.Properties.GetDetails()}");
+                        Console.WriteLine($"Staff: {foundviewing.Staff.Name}");
+                        Console.WriteLine($"Time: {foundviewing.ViewingTime}");
+                        Console.WriteLine($"Status: {foundviewing.Status}"); 
+                    }
+                    else
+                    {
+                        Console.WriteLine("No viewings found for Customer Id");
+                    }
+                }
+                else if(option =="11")
+                {
+                    exitMenu = true;
+                    Console.WriteLine("Exiting system");
                 }
             }
         }
