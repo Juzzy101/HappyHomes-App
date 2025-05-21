@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,7 +36,8 @@ namespace HappyHomes_App
 
                 Console.WriteLine("----Viewing Options:");
                 Console.WriteLine("7. Add new booking");
-
+                Console.WriteLine("8.View all bookings");
+                Console.WriteLine("9.Adjust ");
                 string option = Console.ReadLine();
                 //Allows user to add new customer
                 if (option == "1")
@@ -106,9 +109,29 @@ namespace HappyHomes_App
                         }
                     }
                 }
-                else if (option =="?")
+                else if (option == "7")
                 {
                     Console.WriteLine("Customer Email: ");
+                    string email = Console.ReadLine();
+                    Console.WriteLine("Property Id");
+                    string PropertyId = Console.ReadLine();
+                    Console.WriteLine("Staff name: ");
+                    string staffName = Console.ReadLine();
+                    Console.WriteLine("Viewing Time (yyyy-mm-dd HH:mm)");
+                    string timeInput = Console.ReadLine();
+                    DateTime viewingTime = DateTime.Parse(timeInput);
+
+                    //Method to create booking
+                    realEstate1.BookViewing(email, PropertyId, staffName, viewingTime);
+
+
+                }
+                else if (option =="8")
+                {
+                    foreach(Viewings viewing in realEstate1.Viewings)
+                    {
+                        Console.WriteLine($"{viewing.Customers.FullName} - {viewing.Properties.Address} - {viewing.Staff.Name} - {viewing.ViewingTime} | {viewing.Status}");
+                    }
                 }
             }
         }
