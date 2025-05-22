@@ -32,7 +32,7 @@ namespace HappyHomes_App
                 Console.WriteLine("----Properties Options: ");
                 Console.WriteLine("4. Add Properties ");
                 Console.WriteLine("5. View all Properties ");
-                Console.WriteLine("6. Filter Customer By Name ");
+                Console.WriteLine("6. Filter Property By Name ");
 
                 Console.WriteLine("----Viewing Options:");
                 Console.WriteLine("7. Add new booking");
