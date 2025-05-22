@@ -34,7 +34,7 @@ namespace HappyHomes_App
             MissedViewing = 0;
         }
         //method to return all Customer details
-        public string GetDetsils()
+        public string GetDetails()
         {
             return $"ID:{CustomerId} Name: {FullName} Email: {Email} + MissedViewing: {MissedViewing}";
         }

@@ -63,7 +63,7 @@ namespace HappyHomes_App
                     Console.WriteLine("All Customers");
                     foreach (Customers customer in realEstate1.CustomersList)
                     {
-                        Console.WriteLine(customer.GetDetsils());
+                        Console.WriteLine(customer.GetDetails());
                         if (customer.CanBookViewing)
                         {
                             Console.WriteLine("Status: Can make Booking");
@@ -82,7 +82,7 @@ namespace HappyHomes_App
                     {
                         if (customer.FullName == name)
                         {
-                            Console.WriteLine(customer.GetDetsils());
+                            Console.WriteLine(customer.GetDetails());
                         }
                     }
                 }
