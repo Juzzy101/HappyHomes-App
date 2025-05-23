@@ -21,7 +21,7 @@ namespace HappyHomes_App
         //Method to get details of Property
         public string GetDetails()
         {
-            return PropertyType + " - " + Address + " - " + PropertyID;
+            return $"ID: {PropertyID} Property Type: {PropertyType} Address: {Address}";
         }
 
     }
