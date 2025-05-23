@@ -121,6 +121,10 @@ namespace HappyHomes_App
                             {
                                 Console.WriteLine(properties.GetDetails());
                             }
+                            else
+                            {
+                                Console.WriteLine("The property doesn't exist in the database.");
+                            }
                         }
                     }
                 }
@@ -138,7 +142,7 @@ namespace HappyHomes_App
 
                     //Method to create booking
                     realEstate1.BookViewing(email, PropertyId, staffName, viewingTime);
-
+                    Console.WriteLine("Booking confirmation");
 
                 }
                 else if (option == "8")
