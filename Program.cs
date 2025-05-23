@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.Remoting.Services;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,6 +84,10 @@ namespace HappyHomes_App
                         if (customer.FullName == name)
                         {
                             Console.WriteLine(customer.GetDetails());
+                        }
+                        else
+                        {
+                            Console.WriteLine("The customer doesn't exist in the database.");
                         }
                     }
                 }
