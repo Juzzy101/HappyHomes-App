@@ -101,7 +101,7 @@ namespace HappyHomes_App
                     string address = Console.ReadLine();
 
                     realEstate1.AddProperties(new Properties(id, type, address));
-
+                    Console.WriteLine("Property Added)");
                 }
                 else if (option == "5")
                 {
