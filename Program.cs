@@ -76,7 +76,7 @@ namespace HappyHomes_App
                 }
                 else if (option == "3")
                 {
-                    Console.WriteLine("Enter customer name");
+                    Console.WriteLine("Enter customer full name");
                     string name = Console.ReadLine();
                     foreach (Customers customer in realEstate1.CustomersList)
                     {
