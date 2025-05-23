@@ -33,7 +33,7 @@ namespace HappyHomes_App
                 Console.WriteLine("----Properties Options: ");
                 Console.WriteLine("4. Add Properties ");
                 Console.WriteLine("5. View all Properties ");
-                Console.WriteLine("6. Filter Property By Name ");
+                Console.WriteLine("6. Filter Property By Address ");
 
                 Console.WriteLine("----Viewing Options:");
                 Console.WriteLine("7. Add new booking");
@@ -101,7 +101,7 @@ namespace HappyHomes_App
                     string address = Console.ReadLine();
 
                     realEstate1.AddProperties(new Properties(id, type, address));
-                    Console.WriteLine("Property Added)");
+                    Console.WriteLine("Property Added");
                 }
                 else if (option == "5")
                 {
