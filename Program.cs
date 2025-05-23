@@ -90,7 +90,7 @@ namespace HappyHomes_App
                 {
                     Console.WriteLine("Property ID:");
                     string id = Console.ReadLine();
-                    Console.WriteLine("Property Type");
+                    Console.WriteLine("Property Type (choose from: detached, semi-detached, bungalow, flat, terrace or enterprise property)");
                     string type = Console.ReadLine();
                     Console.WriteLine("Address");
                     string address = Console.ReadLine();

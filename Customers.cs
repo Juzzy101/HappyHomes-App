@@ -36,7 +36,7 @@ namespace HappyHomes_App
         //method to return all Customer details
         public string GetDetails()
         {
-            return $"ID:{CustomerId} Name: {FullName} Email: {Email} + MissedViewing: {MissedViewing}";
+            return $"ID:{CustomerId} | Name: {FullName} | Email: {Email} | Address: {Address} | Phone Number {PhoneNumber} | MissedViewing: {MissedViewing}";
         }
         public bool CanBookViewing
         { get
