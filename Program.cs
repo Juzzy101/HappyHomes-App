@@ -142,7 +142,7 @@ namespace HappyHomes_App
 
                     //Method to create booking
                     realEstate1.BookViewing(email, PropertyId, staffName, viewingTime);
-                    Console.WriteLine("Booking confirmation");
+                    Console.WriteLine("Booking confirmed");
 
                 }
                 else if (option == "8")
@@ -163,7 +163,7 @@ namespace HappyHomes_App
                         Console.WriteLine("Invalid ID");
                         continue;
                     }
-                    //Find vieving
+                    //Find viewing
                     Viewings viewing = null;
                     foreach (var v in realEstate1.Viewings)
                     {
