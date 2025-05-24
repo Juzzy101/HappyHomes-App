@@ -209,7 +209,7 @@ namespace HappyHomes_App
                     }
                     if (foundviewing != null)
                     {
-                        Console.WriteLine($"Vieving for Custome: {foundviewing.Customers.FullName}");
+                        Console.WriteLine($"Viewing for Customer: {foundviewing.Customers.FullName}");
                         Console.WriteLine($"Property: {foundviewing.Properties.GetDetails()}");
                         Console.WriteLine($"Staff: {foundviewing.Staff.Name}");
                         Console.WriteLine($"Time: {foundviewing.ViewingTime}");

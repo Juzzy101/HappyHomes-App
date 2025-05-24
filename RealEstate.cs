@@ -121,7 +121,7 @@ namespace HappyHomes_App
                 {
                     viewing.Status = newStatus;
                     //viewing missed add one to customer
-                    if (newStatus == "viewing Missed")
+                    if (newStatus == "Viewing Missed")
                     {
                         viewing.Customers.MissedViewing++;
                         if (viewing.Customers.MissedViewing <= 3)
