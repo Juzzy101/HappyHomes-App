@@ -124,7 +124,7 @@ namespace HappyHomes_App
                     if (newStatus == "Viewing Missed")
                     {
                         viewing.Customers.MissedViewing++;
-                        if (viewing.Customers.MissedViewing <= 3)
+                        if (viewing.Customers.MissedViewing >= 3)
                         {
                             Console.WriteLine("Customer can no longer make bookings");
                         }

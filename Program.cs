@@ -141,8 +141,15 @@ namespace HappyHomes_App
                     DateTime viewingTime = DateTime.Parse(timeInput);
 
                     //Method to create booking
-                    realEstate1.BookViewing(email, PropertyId, staffName, viewingTime);
-                    Console.WriteLine("Booking confirmed");
+                    var booking = realEstate1.BookViewing(email, PropertyId, staffName, viewingTime);
+                    if(booking != null)
+                    {
+                        Console.WriteLine("Booking confirmed");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Booking failed");
+                    }
 
                 }
                 else if (option == "8")
