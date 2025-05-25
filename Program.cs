@@ -142,7 +142,7 @@ namespace HappyHomes_App
 
                     //Method to create booking
                     var booking = realEstate1.BookViewing(email, PropertyId, staffName, viewingTime);
-                    if(booking != null)
+                    if (booking != null)
                     {
                         Console.WriteLine("Booking confirmed");
                     }
@@ -180,7 +180,7 @@ namespace HappyHomes_App
                             break;
                         }
                     }
-                    if (viewing!= null)
+                    if (viewing != null)
                     {
                         Console.WriteLine("Current Status: " + viewing.Status);
                         Console.WriteLine("Enter new status (Booked, Viewing Attended, Viewing Missed, Cancelled: ");
@@ -194,17 +194,17 @@ namespace HappyHomes_App
                     }
 
                 }
-                else if (option =="10")
+                else if (option == "10")
                 {
                     Console.WriteLine("Enter Customer ID");
                     int customerID;
-                    bool validID = Int32.TryParse(Console.ReadLine(),out customerID);
+                    bool validID = Int32.TryParse(Console.ReadLine(), out customerID);
                     if (!validID)
                     {
                         Console.WriteLine("Invalid ID");
                         continue;
                     }
-                    Viewings  foundviewing = null;
+                    Viewings foundviewing = null;
                     foreach (var v in realEstate1.Viewings)
                     {
                         if (v.Customers.CustomerId == customerID)
@@ -220,14 +220,14 @@ namespace HappyHomes_App
                         Console.WriteLine($"Property: {foundviewing.Properties.GetDetails()}");
                         Console.WriteLine($"Staff: {foundviewing.Staff.Name}");
                         Console.WriteLine($"Time: {foundviewing.ViewingTime}");
-                        Console.WriteLine($"Status: {foundviewing.Status}"); 
+                        Console.WriteLine($"Status: {foundviewing.Status}");
                     }
                     else
                     {
                         Console.WriteLine("No viewings found for Customer Id");
                     }
                 }
-                else if(option =="11")
+                else if (option == "11")
                 {
                     exitMenu = true;
                     Console.WriteLine("Exiting system");
