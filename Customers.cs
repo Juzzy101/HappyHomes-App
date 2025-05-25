@@ -12,9 +12,9 @@ namespace HappyHomes_App
         private static int nextId = 1;
 
         public int CustomerId { get; set; }
-        public string FullName {  get; set; }
+        public string FullName { get; set; }
         public string Email { get; set; }
-        public string Address   { get; set; }    
+        public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public int MissedViewing { get; set; }
 
@@ -39,8 +39,10 @@ namespace HappyHomes_App
             return $"ID:{CustomerId} | Name: {FullName} | Email: {Email} | Address: {Address} | Phone Number {PhoneNumber} | MissedViewing: {MissedViewing}";
         }
         public bool CanBookViewing
-        { get
-            { return MissedViewing < 3;
+        {
+            get
+            {
+                return MissedViewing < 3;
             }
         }
     }
